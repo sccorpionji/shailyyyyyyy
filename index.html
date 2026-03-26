@@ -202,6 +202,11 @@ TU ZAROORI SA H MUJHKO ZINDA REHNE K LIE❤️
 </p>
 </section>
 
+<!-- 🎵 MUSIC ADDED (only this part) -->
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 function showPopup() {
     alert("Shaily… aap hamaar sab kuch ho ❤️\nMERI BHASHA HE BADALDI!!!❤️");
@@ -235,6 +240,11 @@ document.addEventListener("mousemove", function(e) {
 
     setTimeout(() => heart.remove(), 800);
 });
+
+/* 🎵 PLAY MUSIC ON CLICK */
+document.addEventListener("click", () => {
+    document.getElementById("bgMusic").play();
+}, { once: true });
 </script>
 
 </body>
