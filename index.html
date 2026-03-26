@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love Shaily ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    color: #3b1f1f;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #ff2e63;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 2s;
+}
+
+.btn {
+    background: #ff2e63;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.card {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeUp 2s;
+}
+
+.heart {
+    position: fixed;
+    bottom: 0;
+    animation: floatUp 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@keyframes fadeUp {
+    from {opacity:0; transform: translateY(50px);}
+    to {opacity:1; transform: translateY(0);}
+}
+@keyframes floatUp {
+    from {transform: translateY(0);}
+    to {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<h1>For My Love Shaily ❤️</h1>
+<p>Aap hamaar pehla pyaar ho… aur sach bolu… aap hi hamaar last ho.</p>
+<button class="btn" onclick="showPopup()">Click karo na ❤️</button>
+</section>
+
+<section>
+<h2>Humra Dil Ke Baat 💖</h2>
+<p>
+Shaily… aap hamaar first love ho…  
+pehli baar aisan feel aaya hai life me…  
+
+pehle kabhi samjhe hi nahi the ki pyaar ka matlab ka hota hai…  
+par aap aaye… aur sab badal gaya…  
+
+ab lagta hai bas aap hi chahiye…  
+life bhar… seedha simple.
+</p>
+</section>
+
+<section>
+<h2>Aap Humke Badal Diye ❤️</h2>
+<p>
+Sach bolu… aap humke better bana diye…  
+
+heal kiye… grow karwaye… samjhaye ki care ka hota hai…  
+</p>
+</section>
+
+<section>
+<h2>Aapke Baare Me 😍</h2>
+
+<div class="card">Aapka face...aapki eyebrows...aapke lips...aapke ears...am in a devine love with them</div>
+<div class="card">Aapki aankhon me doobte h hr din...</div>
+<div class="card">Aap jab haste ho…feels am curing your scars </div>
+<div class="card">Aap he ho jo humra pyar express krwa paaye</div>
+<div class="card">Aur dressing sense…to lethal h he</div>
+
+</section>
+
+<section>
+<h2>Aapke Saath 💫</h2>
+<p>
+Aapke saath rehke na… alag hi peace milta hai…  
+
+jaise sab tension khatam… sab calm…  
+
+aapka voice… aapka laugh… aapka bunny teeth... 
+abhi bhi dimaag me chalta rehta hai…  
+
+aur aapka chhota chhota expression…  
+wo sab humara favorite hai.
+</p>
+</section>
+
+<section>
+<h2>Jaipur = Aap 🌆</h2>
+
+<div class="card">Jaipur tabhi special laga jab aap saath the</div>
+<div class="card">Wo 4 nights… abhi tak yaad hai har ek moment</div>
+<div class="card">Bike ride… Seltos drive… sab unreal lag raha tha</div>
+<div class="card">Forts bhi ache the… par aapke saath hone se sab alag hi feel hua</div>
+
+</section>
+
+<section>
+<h2>Humra Duniya 🌍</h2>
+<p>
+ab to hr jagha university , hostel , seltos , bike har kahi yaaden chodke chali gai chahke bhi nahi bhool paatee...
+</p>
+</section>
+
+<section>
+<h2>Ek Baat… 🫀</h2>
+<p>
+Ek baat bolu…  
+
+jitna bhi fight hota hai…  
+ek cheez kabhi change nahi hota…  
+
+aap hamaar liye special ho… genuinely.  
+or bahut maante h aapko umhaaaaaa ❤️
+</p>
+</section>
+
+<section>
+<h2>Aap Hi Ho ❤️</h2>
+<p>
+Subha uthte hi aap yaad aate ho…  
+raat me sone se pehle bhi aap yaad aate ho…  
+
+har chhoti cheez me aap yaad aate ho…  
+
+aap hi ho jo humko complete feel karate ho…  
+aap hi ho jo humko shona bolna sikayeeee…  
+
+aap sirf koi nahi ho…  
+aap hamaare fav person ho jise hum daily choose krte hai…  
+hamaare peace ho…  
+hamaare feeling ho…  
+hamaare ghar ho 💗
+</p>
+</section>
+
+<section>
+<h2>Click karo 😏</h2>
+<button class="btn" onclick="reveal()">Tap karo ❤️</button>
+<p id="hidden" style="display:none; font-size:20px;">
+TU ZAROORI SA H MUJHKO ZINDA REHNE K LIE❤️
+</p>
+</section>
+
+<script>
+function showPopup() {
+    alert("Shaily… aap hamaar sab kuch ho ❤️\nMERI BHASHA HE BADALDI!!!❤️");
+}
+
+function reveal() {
+    document.getElementById("hidden").style.display = "block";
+}
+
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
