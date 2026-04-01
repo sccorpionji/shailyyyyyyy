@@ -1,294 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Love Shailyyyyyyyyyyy ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity & Beyond | For Shaily ❤️</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&family=Great+Vibes&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           1. CORE & LIVE MOVING GRADIENT
+           ============================================================ */
+        :root {
+            --p-rose: #ff2e63;
+            --p-soft: #ff6b81;
+            --p-deep: #ff4d6d;
+            --p-light: #ffdde1;
+            --glow-heavy: 0 0 30px #ff4d6d, 0 0 60px #ff6b81;
+        }
 
-<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* BODY */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #ffdde1, #ff9a9e, #fad0c4);
-    color: #3b1f1f;
-    overflow-x: hidden;
-}
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
-/* SMOOTH */
-html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #3b1f1f;
+            line-height: 1.8;
+            min-height: 100vh;
+            /* LIVE MOVING GRADIENT BACKGROUND */
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #ffdde1);
+            background-size: 400% 400%;
+            animation: liveGradient 15s ease infinite;
+            position: relative;
+        }
 
-/* SECTIONS */
-section {
-    padding: 90px 20px;
-    text-align: center;
-    animation: fadeUp 1.2s ease;
-}
+        @keyframes liveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        /* RESTORING THE ROTATING ROUND HEART BACKGROUND EFFECT */
+        body::before {
+            content: "💖 💗 💘 ❤️ 💕";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(80px, 15vw, 150px);
+            opacity: 0.12; /* Slightly more visible for that "Glow" look */
+            animation: rotateBg 25s linear infinite;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0; /* Behind the text but above the gradient */
+        }
 
-/* HEADINGS */
-h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 4em;
-    letter-spacing: 2px;
-    text-shadow:
-        0 0 10px #ff4d6d,
-        0 0 30px #ff4d6d,
-        0 0 60px #ff6b81;
-    animation: glow 2s infinite alternate;
-}
+        @keyframes rotateBg {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
 
-h2 {
-    color: #ff2e63;
-    font-weight: 600;
-}
+        /* ============================================================
+           2. PROGRESS & UI COMPONENTS
+           ============================================================ */
+        .progress-container { position: fixed; top: 0; left: 0; z-index: 2000; width: 100%; height: 8px; background: rgba(255, 255, 255, 0.1); }
+        .progress-bar { height: 100%; background: linear-gradient(to right, var(--p-rose), #fff); width: 0%; box-shadow: 0 0 20px #fff; }
 
-/* GLOW ANIMATION */
-@keyframes glow {
-    from { text-shadow: 0 0 10px #ff4d6d; }
-    to { text-shadow: 0 0 30px #ff4d6d, 0 0 80px #ff6b81; }
-}
+        section { position: relative; padding: 80px 10%; text-align: center; z-index: 1; }
 
-/* BUTTON */
-.btn {
-    background: linear-gradient(45deg, #ff2e63, #ff6b81);
-    color: white;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 16px;
-    box-shadow: 0 0 15px rgba(255,0,80,0.4);
-}
+        /* GLOWING HEADINGS */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 12vw, 6rem);
+            color: #fff;
+            margin-bottom: 20px;
+            animation: glowText 2.5s infinite alternate, floatText 4s ease-in-out infinite;
+            text-shadow: 0 0 20px var(--p-deep);
+        }
 
-.btn:hover {
-    transform: scale(1.15);
-    box-shadow:
-        0 0 20px #ff4d6d,
-        0 0 40px #ff6b81;
-}
+        @keyframes glowText {
+            from { text-shadow: 0 0 15px #fff, 0 0 30px var(--p-deep); }
+            to { text-shadow: 0 0 25px #fff, 0 0 60px var(--p-deep), 0 0 90px var(--p-soft); }
+        }
 
-/* CARDS */
-.card {
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(15px);
-    border-radius: 25px;
-    padding: 22px;
-    margin: 22px auto;
-    max-width: 520px;
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.2),
-        0 0 20px rgba(255,0,80,0.2);
-    transition: 0.4s;
-}
+        @keyframes floatText { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-.card:hover {
-    transform: scale(1.08) rotate(0.5deg);
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.3),
-        0 0 40px #ff4d6d;
-}
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            color: var(--p-rose);
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
 
-/* HEART FLOAT */
-.heart {
-    position: fixed;
-    bottom: 0;
-    animation: floatUp 5s linear infinite;
-    pointer-events: none;
-}
+        /* GLOWING GLASS CARDS */
+        .card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            padding: 35px;
+            margin: 25px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 0 20px var(--p-deep);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-/* BACKGROUND HEART EFFECT */
-body::before {
-    content: "💖 💗 💘 ❤️ 💕";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 120px;
-    opacity: 0.05;
-    animation: rotateBg 25s linear infinite;
-    pointer-events: none;
-}
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 46, 99, 0.4), 0 0 40px var(--p-deep);
+            background: rgba(255, 255, 255, 0.35);
+        }
 
-@keyframes rotateBg {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
+        /* BUTTONS */
+        .btn {
+            background: linear-gradient(45deg, var(--p-rose), var(--p-soft));
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 10px 25px rgba(255, 46, 99, 0.3);
+            transition: 0.4s;
+            margin: 15px;
+        }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-    from {opacity:0; transform: translateY(60px);}
-    to {opacity:1; transform: translateY(0);}
-}
+        .btn:hover { transform: scale(1.1); box-shadow: var(--glow-heavy); }
 
-@keyframes floatUp {
-    from {transform: translateY(0);}
-    to {transform: translateY(-100vh);}
-}
+        /* POLAROID GRID */
+        .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 30px 0; }
+        .polaroid { background: #fff; padding: 10px 10px 35px 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transform: rotate(-2deg); transition: 0.4s; }
+        .polaroid:nth-child(even) { transform: rotate(3deg); }
+        .polaroid:hover { transform: rotate(0deg) scale(1.1); z-index: 10; box-shadow: 0 0 30px var(--p-deep); }
+        .polaroid .caption { font-family: 'Dancing Script', cursive; font-size: 1.2rem; text-align: center; margin-top: 10px; color: #444; }
 
-</style>
+        /* HEART PARTICLES (MOVING HEARTS) */
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            animation: floatHeart 6s linear forwards;
+            z-index: 1000;
+            filter: drop-shadow(0 0 5px white);
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        #secretMessage { display: none; }
+    </style>
 </head>
-
 <body>
 
-<section class="hero">
-<h1>For Myyyyyyyyy Love Shaily ridammm ❤️</h1>
-<p>Aap hamaare pehla pyaar ho… aur sach bolu… aap hi hamaare last ho.</p>
-<button class="btn" onclick="showPopup()">Click karo na ❤️</button>
-</section>
+    <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
-<section>
-<h2>Humre Dil Ki Baat 💖</h2>
-<p>
-Shaily… aap hamaara first love ho…  
-pehli baar aisan feel aaya hai life me…  
+    <section style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1 id="mainTitle">For My Shaily...</h1>
+        <p style="color: white; font-weight: 600; font-size: 1.4rem; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">Aap hamaare pehla pyaar ho… aur sach bolu… aap hi hamaare last ho.</p>
+        <button class="btn" onclick="initExperience()">Start Our Story ❤️</button>
+    </section>
 
-pehle kabhi samjhe hi nahi the ki pyaar ka matlab ka hota hai…  
-par aap aaye… aur sab badal gaya…  
+    <div class="container" style="max-width: 900px; margin: 0 auto;">
+        
+        <h2 class="section-title">Humre Dil Ki Baat 💖</h2>
+        <div class="card">
+            <p>
+                Shaily… aap hamaara first love ho… pehli baar aisan feel aaya hai life me…<br><br>
+                pehle kabhi samjhe hi nahi the ki pyaar ka matlab ka hota hai… par aap aaye… aur sab badal gaya…<br><br>
+                ab lagta hai bas aap hi chahiye… life bhar… seedha simple.
+            </p>
+        </div>
 
-ab lagta hai bas aap hi chahiye…  
-life bhar… seedha simple.
-</p>
-</section>
+        <h2 class="section-title">Aap Hume Badal Diye ❤️</h2>
+        <div class="card">
+            <p style="font-style: italic; font-weight: 600; font-size: 1.4rem; color: var(--p-rose);">
+                "Sach bolu… aap humke better bana diye… heal kiye… grow karwaye… samjhaye ki care ka hota hai…"
+            </p>
+        </div>
 
-<section>
-<h2>Aap Hume Badal Diye ❤️</h2>
-<p>
-Sach bolu… aap humke better bana diye…  
-heal kiye… grow karwaye… samjhaye ki care ka hota hai…  
-</p>
-</section>
+        <h2 class="section-title">Aapke Baare Me 😍</h2>
+        <div class="polaroid-grid">
+            <div class="polaroid"><div class="caption">Aapka Face & Brows</div></div>
+            <div class="polaroid"><div class="caption">Aapke Lips & Ears</div></div>
+            <div class="polaroid"><div class="caption">Aapki Aankhen</div></div>
+            <div class="polaroid"><div class="caption">Aapki Hasi</div></div>
+            <div class="polaroid"><div class="caption">Bunny Teeth</div></div>
+            <div class="polaroid"><div class="caption">Dressing Sense</div></div>
+        </div>
 
-<section>
-<h2>Aapke Baare Me 😍</h2>
-<div class="card">Aapka face...aapki eyebrows...aapke lips...aapke ears...am in a devine love with them</div>
-<div class="card">Aapki aankhon me doobte h hr din...</div>
-<div class="card">Aap jab haste ho…feels am curing your scars </div>
-<div class="card">Aap he ho jo humra pyar express krwa paaye</div>
-<div class="card">Aur dressing sense…to lethal h he</div>
-</section>
+        <h2 class="section-title">Aapke Saath 💫</h2>
+        <div class="card">
+            <p>
+                Aapke saath rehke na… alag hi peace milta hai… jaise sab tension khatam… sab calm…<br><br>
+                aapka voice… aapka laugh… aapka bunny teeth... abhi bhi dimaag me chalta rehta hai… aur aapka chhota chhota expression… wo sab humara favorite hai.
+            </p>
+        </div>
 
-<section>
-<h2>Aapke Saath 💫</h2>
-<p>
-Aapke saath rehke na… alag hi peace milta hai…  
-jaise sab tension khatam… sab calm…  
-aapka voice… aapka laugh… aapka bunny teeth... 
-abhi bhi dimaag me chalta rehta hai…  
-aur aapka chhota chhota expression…  
-wo sab humara favorite hai.
-</p>
-</section>
+        <h2 class="section-title">Jaipur = Aap 🌆</h2>
+        <div class="card">
+            <p>
+                Jaipur tabhi special laga jab aap saath the. Wo 4 nights… abhi tak yaad hai har ek moment. <br><br>
+                Bike ride… Seltos drive… sab unreal lag raha tha. Forts bhi ache the… par aapke saath hone se sab alag hi feel hua.
+            </p>
+        </div>
 
-<section>
-<h2>Jaipur = Aap 🌆</h2>
-<div class="card">Jaipur tabhi special laga jab aap saath the</div>
-<div class="card">Wo 4 nights… abhi tak yaad hai har ek moment</div>
-<div class="card">Bike ride… Seltos drive… sab unreal lag raha tha</div>
-<div class="card">Forts bhi ache the… par aapke saath hone se sab alag hi feel hua</div>
-</section>
+        <h2 class="section-title">Humriiiii Duniya 🌍</h2>
+        <div class="card" style="background: rgba(255, 255, 255, 0.4);">
+            <p style="text-align: center; font-weight: 600;">
+                Ab to hr jagha university, hostel, seltos, bike har kahi yaaden chodke chali gai chahke bhi nahi bhool paatee...
+            </p>
+        </div>
 
-<section>
-<h2>Humriiiii Duniya 🌍</h2>
-<p>
-ab to hr jagha university , hostel , seltos , bike har kahi yaaden chodke chali gai chahke bhi nahi bhool paatee...
-</p>
-</section>
+        <h2 class="section-title">Aap Hi Ho ❤️</h2>
+        <div class="card">
+            <p>
+                Subha uthte hi aap yaad aate ho… raat me sone se pehle bhi aap yaad aate ho… Har chhoti cheez me aap yaad aate ho… <br><br>
+                Aap hi ho jo humko complete feel karate ho… aap hi ho jo humko shona बोलन sikayeeee… <br><br>
+                Aap sirf koi nahi ho… aap hamaare fav person ho jise hum daily choose krte hai… hamaare peace ho… hamaare feeling ho… hamaare ghar ho 💗
+            </p>
+        </div>
 
-<section>
-<h2>Ek Baat… 🫀</h2>
-<p>
-Ek baat bolu…  
-jitna bhi fight hota hai…  
-ek cheez kabhi change nahi hota…  
-aap hamaare liye special ho… genuinely.  
-or bahut maante h aapko umhaaaaaa ❤️
-</p>
-</section>
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 100px;">
+            <button class="btn" onclick="revealSecret()">Ek Last Baat... 🤫</button>
+            <div id="secretMessage" class="card" style="margin-top: 30px; border: 2px solid white;">
+                <h3 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--p-rose);">
+                    TU ZAROORI SA H MUJHKO ZINDA REHNE K LIE❤️
+                </h3>
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="https://digibouquet.vercel.app/bouquet/b4d5b332-ef27-42da-8972-f7ad20f0de49" target="_blank" class="btn" style="background: #ffd700; color: #000;">Roses For You 🌹</a>
+            </div>
+        </div>
+    </div>
 
-<section>
-<h2>Aap Hi Ho ❤️</h2>
-<p>
-Subha uthte hi aap yaad aate ho…  
-raat me sone se pehle bhi aap yaad aate ho…  
-har chhoti cheez me aap yaad aate ho…  
-aap hi ho jo humko complete feel karate ho…  
-aap hi ho jo humko shona bolna sikayeeee…  
-aap sirf koi nahi ho…  
-aap hamaare fav person ho jise hum daily choose krte hai…  
-hamaare peace ho…  
-hamaare feeling ho…  
-hamaare ghar ho 💗
-</p>
-</section>
+    <audio id="bgMusic" loop><source src="song.mp3" type="audio/mpeg"></audio>
 
-<section>
-<h2>Click karo 😏</h2>
-<button class="btn" onclick="reveal()">Tap karo ❤️</button>
+    <script>
+        // Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        };
 
-<br><br>
+        // Typing Effect
+        const textToType = "For My Love Shailyyyyyyyyyyy ❤️";
+        let charIndex = 0;
+        function typeEffect() {
+            if (charIndex < textToType.length) {
+                document.getElementById("mainTitle").innerHTML = textToType.substring(0, charIndex + 1);
+                charIndex++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+        window.onload = typeEffect;
 
-<a href="https://digibouquet.vercel.app/bouquet/b4d5b332-ef27-42da-8972-f7ad20f0de49" target="_blank">
-<button class="btn">Ek aur surprise 🌹</button>
-</a>
+        // Restore Moving Hearts Particles
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart-particle";
+            heart.innerHTML = ["❤️", "💖", "💗", "💕", "✨"][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.bottom = "-5vh";
+            heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
 
-<p id="hidden" style="display:none; font-size:20px;">
-TU ZAROORI SA H MUJHKO ZINDA REHNE K LIE❤️
-</p>
-</section>
+        // Initialize Everything
+        function initExperience() {
+            document.getElementById('bgMusic').play().catch(() => {});
+            alert("Ridam: Shaily... aap hamare sab kuch ho ❤️");
+            setInterval(createHeart, 300); // Start moving hearts rain
+            window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+        }
 
-<audio id="bgMusic" loop>
-<source src="song.mp3" type="audio/mpeg">
-</audio>
+        function revealSecret() {
+            document.getElementById('secretMessage').style.display = 'block';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
 
-<script>
-function showPopup() {
-    alert("Shaily… aap hamaar sab kuch ho ❤️\nMERI BHASHA HE BADALDI!!!❤️");
-}
-
-function reveal() {
-    document.getElementById("hidden").style.display = "block";
-}
-
-setInterval(() => {
-    let heart = document.createElement("div");
-    heart.innerHTML = ["❤️","💗","💖","💘"][Math.floor(Math.random()*4)];
-    heart.className = "heart";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 5000);
-}, 250);
-
-document.addEventListener("mousemove", function(e) {
-    let heart = document.createElement("div");
-    heart.innerHTML = "💗";
-    heart.style.position = "fixed";
-    heart.style.left = e.clientX + "px";
-    heart.style.top = e.clientY + "px";
-    heart.style.fontSize = "14px";
-    heart.style.pointerEvents = "none";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 600);
-});
-
-document.addEventListener("click", () => {
-    document.getElementById("bgMusic").play().catch(()=>{});
-}, { once: true });
-</script>
-
+        // Mouse Trail Hearts
+        document.addEventListener("mousemove", (e) => {
+            if(Math.random() > 0.8) {
+                const h = document.createElement("div");
+                h.innerHTML = "💗";
+                h.style.position = "fixed";
+                h.style.left = e.clientX + "px";
+                h.style.top = e.clientY + "px";
+                h.style.fontSize = "15px";
+                h.style.pointerEvents = "none";
+                h.style.zIndex = "1001";
+                document.body.appendChild(h);
+                h.animate([{opacity: 1, transform: 'scale(1)'}, {opacity: 0, transform: 'scale(0) translateY(-20px)'}], {duration: 800});
+                setTimeout(() => h.remove(), 800);
+            }
+        });
+    </script>
 </body>
 </html>
+<script>
+
+/* 💖 EXTRA BACKGROUND MINI HEARTS (SUPER SMOOTH + MANY TYPES) */
+function spawnMiniHeart() {
+    const h = document.createElement("div");
+
+    // different hearts + sparkles
+    const hearts = ["❤️","💖","💗","💕","💘","💞","✨","💓"];
+    h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+
+    h.style.position = "fixed";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.top = "100vh";
+    h.style.fontSize = (Math.random()*12 + 8) + "px"; // small hearts
+    h.style.opacity = Math.random()*0.8 + 0.2;
+    h.style.pointerEvents = "none";
+    h.style.zIndex = "0"; // background layer
+
+    document.body.appendChild(h);
+
+    // smooth floating animation
+    h.animate([
+        { transform: "translateY(0) scale(1)", opacity: 1 },
+        { transform: "translateY(-120vh) scale(1.5)", opacity: 0 }
+    ], {
+        duration: Math.random()*4000 + 4000,
+        easing: "linear"
+    });
+
+    setTimeout(() => h.remove(), 7000);
+}
+
+/* 🔥 CONTINUOUS HEART FLOW */
+setInterval(spawnMiniHeart, 150);
+
+</script>
+<script>
+
+/* 🔥 SECRET MODE */
+document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "l") {
+        alert("I love you Shaily ❤️");
+    }
+});
+
+</script>
+
+<script>
+
+/* 🌈 COLOR SHIFT */
+setInterval(() => {
+    document.body.style.filter = `hue-rotate(${Math.random()*15}deg)`;
+}, 4000);
+
+</script>
+
+<script>
+
+/* 💫 BUTTON FLOAT */
+setInterval(() => {
+    document.querySelectorAll(".btn").forEach(btn => {
+        btn.style.transform = `translateY(${Math.random()*4 - 2}px)`;
+    });
+}, 1200);
+
+</script>
+
+<script>
+
+/* 💥 CLICK RIPPLE */
+document.addEventListener("click", (e) => {
+    const ripple = document.createElement("div");
+
+    ripple.style.position = "fixed";
+    ripple.style.left = e.clientX + "px";
+    ripple.style.top = e.clientY + "px";
+    ripple.style.width = "10px";
+    ripple.style.height = "10px";
+    ripple.style.borderRadius = "50%";
+    ripple.style.border = "2px solid pink";
+    ripple.style.pointerEvents = "none";
+
+    document.body.appendChild(ripple);
+
+    ripple.animate([
+        { transform: "scale(1)", opacity: 1 },
+        { transform: "scale(12)", opacity: 0 }
+    ], { duration: 600 });
+
+    setTimeout(() => ripple.remove(), 600);
+});
+
+</script>
+<script>
+
+/* 💬 FLOATING LOVE WORDS */
+const loveWords = ["love", "forever", "mine", "us", "always", "soul", "peace"];
+
+setInterval(() => {
+    const w = document.createElement("div");
+    w.innerHTML = loveWords[Math.floor(Math.random()*loveWords.length)];
+    
+    w.style.position = "fixed";
+    w.style.bottom = "0";
+    w.style.left = Math.random()*100 + "vw";
+    w.style.fontSize = "12px";
+    w.style.opacity = "0.4";
+    w.style.pointerEvents = "none";
+    w.style.zIndex = "0";
+
+    document.body.appendChild(w);
+
+    w.animate([
+        { transform: "translateY(0)" },
+        { transform: "translateY(-100vh)" }
+    ], { duration: 6000 });
+
+    setTimeout(() => w.remove(), 6000);
+}, 1200);
+
+</script>
+
+<script>
+
+/* 🌌 PARALLAX DEPTH */
+window.addEventListener("scroll", () => {
+    const scroll = window.scrollY;
+    document.body.style.backgroundPosition = `center ${scroll * 0.3}px`;
+});
+
+</script>
+
+<script>
+
+/* 🔥 ANDROID TOUCH FIX (CRITICAL) */
+
+/* ✅ convert mousemove → touchmove */
+document.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+
+    if(Math.random() > 0.7){
+        const h = document.createElement("div");
+        h.innerHTML = "💗";
+        h.style.position = "fixed";
+        h.style.left = touch.clientX + "px";
+        h.style.top = touch.clientY + "px";
+        h.style.fontSize = "14px";
+        h.style.pointerEvents = "none";
+        h.style.zIndex = "1001";
+
+        document.body.appendChild(h);
+
+        h.animate([
+            {opacity: 1, transform: 'scale(1)'},
+            {opacity: 0, transform: 'scale(0) translateY(-20px)'}
+        ], {duration: 600});
+
+        setTimeout(() => h.remove(), 600);
+    }
+});
+
+
+/* ✅ force animations to stay active (android fix) */
+document.body.style.willChange = "transform, opacity";
+
+
+/* ✅ fix background animation freeze */
+setInterval(() => {
+    document.body.style.transform = "translateZ(0)";
+}, 2000);
+
+
+/* ✅ SAFE HEART SPAWN (reduces lag on phone) */
+setInterval(() => {
+    if(document.hidden) return; // pause when tab inactive
+
+    const h = document.createElement("div");
+    h.innerHTML = ["❤️","💖","💗","💕"][Math.floor(Math.random()*4)];
+
+    h.style.position = "fixed";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.bottom = "-5vh";
+    h.style.fontSize = "12px";
+    h.style.pointerEvents = "none";
+    h.style.zIndex = "0";
+
+    document.body.appendChild(h);
+
+    h.animate([
+        { transform: "translateY(0)" },
+        { transform: "translateY(-100vh)" }
+    ], { duration: 5000 });
+
+    setTimeout(()=>h.remove(),5000);
+
+}, 400); // slower = works smoother on phone
+
+
+/* ✅ AUDIO FIX FOR ANDROID */
+document.addEventListener("touchstart", () => {
+    let music = document.getElementById("bgMusic");
+    if(music){
+        music.play().catch(()=>{});
+    }
+}, { once: true });
+
+
+/* ✅ FORCE RENDER LOOP (important for low-end phones) */
+setInterval(() => {
+    document.body.style.opacity = "0.999";
+    setTimeout(()=> document.body.style.opacity = "1", 50);
+}, 3000);
+
+</script>
