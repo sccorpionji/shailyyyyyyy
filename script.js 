@@ -1,0 +1,288 @@
+<script>
+/**
+ * ---------------------------------------------------------
+ * 1. CORE CONFIGURATION & CONSTANTS
+ * ---------------------------------------------------------
+ */
+const SHAILY_CONFIG = {
+    heartEmojis: ["❤️", "💖", "💗", "💘", "💕", "✨", "🌸", "💌"],
+    loveQuotes: [
+        "Aap meri duniya ho ❤️",
+        "Aap bina sab adhoora hai 💔",
+        "Aap hi sab kuch ho 💖",
+        "TU ZAROORI SA H MUJHKO ZINDA REHNE K LIE ❤️",
+        "Jaipur ki galiyan aur aapka saath... best memory ever! 🌆"
+    ],
+    floatingWords: ["Love", "Forever", "Shaily", "Ridam", "Mine", "Soulmate", "Ghar", "Peace"],
+    colors: ["#ff2e63", "#ff6b81", "#ff4d6d", "#ffdde1", "#fad0c4"]
+};
+
+/**
+ * ---------------------------------------------------------
+ * 2. CINEMATIC POPUP ENGINE (Advanced Version)
+ * ---------------------------------------------------------
+ */
+function showPopup() {
+    const popupOverlay = document.createElement("div");
+    popupOverlay.id = "cinematicPopup";
+    popupOverlay.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle, rgba(0,0,0,0.8), rgba(0,0,0,0.95));
+        display: flex; justify-content: center; align-items: center;
+        z-index: 10000; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    `;
+
+    popupOverlay.innerHTML = `
+        <div style="background: linear-gradient(135deg, #fff5f8, #ffe0ec); 
+                    padding: 40px; border-radius: 30px; text-align: center; 
+                    max-width: 400px; width: 90%; position: relative;
+                    box-shadow: 0 0 60px rgba(255, 46, 99, 0.6); 
+                    border: 2px solid white; animation: popupScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+            <div style="font-size: 50px; margin-bottom: 10px;">👑</div>
+            <h2 style="color: #ff2e63; font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 15px;">Shaily ❤️</h2>
+            <p id="dynamicPopupText" style="font-size: 1.1rem; line-height: 1.6; color: #3b1f1f; min-height: 100px;"></p>
+            <br>
+            <button onclick="closePopup()" style="
+                padding: 12px 30px; border: none; border-radius: 25px; 
+                background: #ff2e63; color: white; cursor: pointer;
+                font-weight: 600; box-shadow: 0 5px 15px rgba(255,46,99,0.4);
+                transition: 0.3s;">
+                Meri Jaan ❤️
+            </button>
+        </div>
+    `;
+    document.body.appendChild(popupOverlay);
+
+    let msg = "Aap hamare sab kuch ho... aap hi hamare peace ho... aap hi hamare ghar ho... aapke bina sab adhoora lagta hai. Ridam loves you to the moon and back! ❤️";
+    let i = 0;
+    const el = document.getElementById("dynamicPopupText");
+
+    (function type() {
+        if (i < msg.length) {
+            el.innerHTML += msg.charAt(i);
+            i++;
+            setTimeout(type, 35);
+        }
+    })();
+}
+
+function closePopup() {
+    const pop = document.getElementById("cinematicPopup");
+    if (pop) pop.remove();
+}
+
+/**
+ * ---------------------------------------------------------
+ * 3. INTERACTIVE PARTICLE & TRAIL SYSTEM
+ * ---------------------------------------------------------
+ */
+// Heart Trail + Sparkle Burst
+document.addEventListener("mousemove", (e) => {
+    // Create Trail
+    const trail = document.createElement("div");
+    trail.innerHTML = "💗";
+    trail.style.cssText = `
+        position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
+        font-size: 14px; opacity: 0.8; pointer-events: none; z-index: 9998;
+        transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    `;
+    document.body.appendChild(trail);
+    setTimeout(() => {
+        trail.style.transform = `translate(${(Math.random()-0.5)*40}px, -50px) scale(0)`;
+        trail.style.opacity = "0";
+    }, 10);
+    setTimeout(() => trail.remove(), 600);
+
+    // Random Burst on Move
+    if (Math.random() < 0.15) {
+        const burst = document.createElement("div");
+        burst.innerHTML = "✨";
+        burst.style.cssText = `
+            position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
+            font-size: 20px; pointer-events: none; z-index: 9997;
+        `;
+        document.body.appendChild(burst);
+        burst.animate([
+            { transform: 'translate(0,0) scale(1)', opacity: 1 },
+            { transform: `translate(${(Math.random()-0.5)*100}px, ${(Math.random()-0.5)*100}px) scale(2)`, opacity: 0 }
+        ], { duration: 800 });
+        setTimeout(() => burst.remove(), 800);
+    }
+});
+
+// Click Ripple + Confetti
+document.addEventListener("click", (e) => {
+    // Ripple Effect
+    const ripple = document.createElement("div");
+    ripple.style.cssText = `
+        position: fixed; left: ${e.clientX - 5}px; top: ${e.clientY - 5}px;
+        width: 10px; height: 10px; border: 2px solid #ff4d6d;
+        border-radius: 50%; pointer-events: none; z-index: 9999;
+    `;
+    document.body.appendChild(ripple);
+    ripple.animate([
+        { transform: "scale(1)", opacity: 1 },
+        { transform: "scale(15)", opacity: 0 }
+    ], { duration: 700 });
+    setTimeout(() => ripple.remove(), 700);
+
+    // Confetti Burst
+    for (let j = 0; j < 12; j++) {
+        const c = document.createElement("div");
+        c.innerHTML = SHAILY_CONFIG.heartEmojis[Math.floor(Math.random() * SHAILY_CONFIG.heartEmojis.length)];
+        c.style.cssText = `
+            position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
+            font-size: ${Math.random() * 20 + 10}px; pointer-events: none; z-index: 9999;
+        `;
+        document.body.appendChild(c);
+        const destX = (Math.random() - 0.5) * 300;
+        const destY = (Math.random() - 0.5) * 300;
+        c.animate([
+            { transform: "translate(0,0) rotate(0)", opacity: 1 },
+            { transform: `translate(${destX}px, ${destY}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+        ], { duration: 1000 + Math.random() * 500 });
+        setTimeout(() => c.remove(), 1500);
+    }
+
+    // Play/Resume Background Music
+    const music = document.getElementById("bgMusic");
+    if (music) music.play().catch(() => {});
+});
+
+/**
+ * ---------------------------------------------------------
+ * 4. ATMOSPHERIC BACKGROUND GENERATORS
+ * ---------------------------------------------------------
+ */
+// Infinite Falling Hearts Rain
+function rainHearts() {
+    const heart = document.createElement("div");
+    heart.innerHTML = SHAILY_CONFIG.heartEmojis[Math.floor(Math.random() * SHAILY_CONFIG.heartEmojis.length)];
+    heart.style.cssText = `
+        position: fixed; top: -50px; left: ${Math.random() * 100}vw;
+        font-size: ${Math.random() * 25 + 15}px; opacity: ${Math.random() * 0.7 + 0.3};
+        pointer-events: none; z-index: 1; filter: drop-shadow(0 0 5px white);
+    `;
+    document.body.appendChild(heart);
+
+    const duration = Math.random() * 3000 + 4000;
+    heart.animate([
+        { transform: `translateY(0) rotate(0deg)` },
+        { transform: `translateY(110vh) rotate(${Math.random() * 720}deg)` }
+    ], { duration: duration, easing: "linear" });
+
+    setTimeout(() => heart.remove(), duration);
+}
+setInterval(rainHearts, 300);
+
+// Floating Word Cloud
+function spawnWord() {
+    const word = document.createElement("div");
+    word.innerHTML = SHAILY_CONFIG.floatingWords[Math.floor(Math.random() * SHAILY_CONFIG.floatingWords.length)];
+    word.style.cssText = `
+        position: fixed; bottom: -50px; left: ${Math.random() * 90}vw;
+        font-family: 'Great Vibes', cursive; font-size: 24px; color: white;
+        opacity: 0.4; pointer-events: none; z-index: 2;
+    `;
+    document.body.appendChild(word);
+    word.animate([
+        { transform: "translateY(0) scale(1)", opacity: 0 },
+        { transform: "translateY(-50vh) scale(1.5)", opacity: 0.4 },
+        { transform: "translateY(-100vh) scale(1)", opacity: 0 }
+    ], { duration: 8000, easing: "ease-in-out" });
+    setTimeout(() => word.remove(), 8000);
+}
+setInterval(spawnWord, 2500);
+
+/**
+ * ---------------------------------------------------------
+ * 5. UI ENHANCEMENTS & UTILITIES
+ * ---------------------------------------------------------
+ */
+// Dynamic Quote Cycler
+setInterval(() => {
+    const typingEl = document.getElementById("typing");
+    if (typingEl) {
+        const newQuote = SHAILY_CONFIG.loveQuotes[Math.floor(Math.random() * SHAILY_CONFIG.loveQuotes.length)];
+        typingEl.style.opacity = 0;
+        setTimeout(() => {
+            typingEl.innerHTML = newQuote;
+            typingEl.style.opacity = 1;
+        }, 500);
+    }
+}, 7000);
+
+// Scroll Parallax for Background
+window.addEventListener("scroll", () => {
+    const scrollVal = window.scrollY;
+    document.body.style.backgroundPositionY = -(scrollVal * 0.2) + "px";
+});
+
+// Night Mode / Special Mode
+document.addEventListener("dblclick", () => {
+    document.body.style.transition = "2s";
+    document.body.style.background = "#1a0b16";
+    document.body.style.color = "#ffb7c5";
+    alert("Shaily Mode Activated: Safe, Calm, and Loved. ❤️");
+});
+
+// Smooth Reveal Logic
+function reveal() {
+    const hidden = document.getElementById("hidden");
+    if (hidden) {
+        hidden.style.display = "block";
+        hidden.style.transform = "scale(0.5)";
+        hidden.style.opacity = "0";
+        setTimeout(() => {
+            hidden.style.transition = "1s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+            hidden.style.transform = "scale(1)";
+            hidden.style.opacity = "1";
+        }, 50);
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+}
+
+// Typing Effect for Main Hero Title
+let heroIdx = 0;
+const heroText = "For My Shailyyyyyyyyy ❤️";
+function typeHero() {
+    const target = document.getElementById("typing-hero"); // Ensure you have this ID in HTML
+    if (target && heroIdx < heroText.length) {
+        target.innerHTML += heroText.charAt(heroIdx);
+        heroIdx++;
+        setTimeout(typeHero, 100);
+    }
+}
+
+/**
+ * ---------------------------------------------------------
+ * 6. INITIALIZATION & STYLING INJECTION
+ * ---------------------------------------------------------
+ */
+const dynamicStyles = document.createElement("style");
+dynamicStyles.innerHTML = `
+    @keyframes popupScale { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    #typing { transition: opacity 0.5s ease-in-out; }
+    .glass-card { transition: all 0.5s ease; cursor: pointer; }
+    .glass-card:hover { transform: translateY(-10px) rotate(1deg); }
+    ::selection { background: #ff2e63; color: white; }
+`;
+document.head.appendChild(dynamicStyles);
+
+window.addEventListener("DOMContentLoaded", () => {
+    typeHero();
+    console.log("Love Engine Started for Shaily ❤️");
+});
+
+// Secret Key Listener
+document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "l") {
+        document.body.style.filter = "contrast(1.2) brightness(1.1)";
+        alert("Love Brightness Increased! ✨");
+    }
+});
+
+/* ---------------------------------------------------------
+   END OF LOVE ENGINE (Line Count: Expanded for Shaily)
+   --------------------------------------------------------- */
+</script>
