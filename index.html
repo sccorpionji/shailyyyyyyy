@@ -5,34 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Love Shailyyyyyyyyyyy ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
+
+/* BODY */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    background: radial-gradient(circle at top, #ffdde1, #ff9a9e, #fad0c4);
     color: #3b1f1f;
     overflow-x: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+/* SMOOTH */
+html { scroll-behavior: smooth; }
 
+/* SECTIONS */
 section {
-    padding: 80px 20px;
+    padding: 90px 20px;
     text-align: center;
-    animation: fadeUp 1.5s ease;
+    animation: fadeUp 1.2s ease;
 }
 
-h1 {
-    font-size: 3em;
-    text-shadow: 0 0 10px #ff4d6d, 0 0 25px #ff4d6d;
-}
-
-h2 {
-    color: #ff2e63;
-}
-
+/* HERO */
 .hero {
     height: 100vh;
     display: flex;
@@ -40,35 +36,71 @@ h2 {
     justify-content: center;
 }
 
+/* HEADINGS */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4em;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 10px #ff4d6d,
+        0 0 30px #ff4d6d,
+        0 0 60px #ff6b81;
+    animation: glow 2s infinite alternate;
+}
+
+h2 {
+    color: #ff2e63;
+    font-weight: 600;
+}
+
+/* GLOW ANIMATION */
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff4d6d; }
+    to { text-shadow: 0 0 30px #ff4d6d, 0 0 80px #ff6b81; }
+}
+
+/* BUTTON */
 .btn {
     background: linear-gradient(45deg, #ff2e63, #ff6b81);
     color: white;
-    padding: 15px 30px;
+    padding: 15px 35px;
     border: none;
-    border-radius: 30px;
+    border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 10px rgba(255,0,80,0.4);
-}
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #ff4d6d;
+    font-size: 16px;
+    box-shadow: 0 0 15px rgba(255,0,80,0.4);
 }
 
+.btn:hover {
+    transform: scale(1.15);
+    box-shadow:
+        0 0 20px #ff4d6d,
+        0 0 40px #ff6b81;
+}
+
+/* CARDS */
 .card {
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 22px;
+    margin: 22px auto;
+    max-width: 520px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2),
+        0 0 20px rgba(255,0,80,0.2);
     transition: 0.4s;
 }
+
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.08) rotate(0.5deg);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.3),
+        0 0 40px #ff4d6d;
 }
 
+/* HEART FLOAT */
 .heart {
     position: fixed;
     bottom: 0;
@@ -76,8 +108,27 @@ h2 {
     pointer-events: none;
 }
 
+/* BACKGROUND HEART EFFECT */
+body::before {
+    content: "💖 💗 💘 ❤️ 💕";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    opacity: 0.05;
+    animation: rotateBg 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateBg {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ANIMATIONS */
 @keyframes fadeUp {
-    from {opacity:0; transform: translateY(50px);}
+    from {opacity:0; transform: translateY(60px);}
     to {opacity:1; transform: translateY(0);}
 }
 
@@ -85,6 +136,7 @@ h2 {
     from {transform: translateY(0);}
     to {transform: translateY(-100vh);}
 }
+
 </style>
 </head>
 
@@ -114,32 +166,26 @@ life bhar… seedha simple.
 <h2>Aap Hume Badal Diye ❤️</h2>
 <p>
 Sach bolu… aap humke better bana diye…  
-
 heal kiye… grow karwaye… samjhaye ki care ka hota hai…  
 </p>
 </section>
 
 <section>
 <h2>Aapke Baare Me 😍</h2>
-
 <div class="card">Aapka face...aapki eyebrows...aapke lips...aapke ears...am in a devine love with them</div>
 <div class="card">Aapki aankhon me doobte h hr din...</div>
 <div class="card">Aap jab haste ho…feels am curing your scars </div>
 <div class="card">Aap he ho jo humra pyar express krwa paaye</div>
 <div class="card">Aur dressing sense…to lethal h he</div>
-
 </section>
 
 <section>
 <h2>Aapke Saath 💫</h2>
 <p>
 Aapke saath rehke na… alag hi peace milta hai…  
-
 jaise sab tension khatam… sab calm…  
-
 aapka voice… aapka laugh… aapka bunny teeth... 
 abhi bhi dimaag me chalta rehta hai…  
-
 aur aapka chhota chhota expression…  
 wo sab humara favorite hai.
 </p>
@@ -147,12 +193,10 @@ wo sab humara favorite hai.
 
 <section>
 <h2>Jaipur = Aap 🌆</h2>
-
 <div class="card">Jaipur tabhi special laga jab aap saath the</div>
 <div class="card">Wo 4 nights… abhi tak yaad hai har ek moment</div>
 <div class="card">Bike ride… Seltos drive… sab unreal lag raha tha</div>
 <div class="card">Forts bhi ache the… par aapke saath hone se sab alag hi feel hua</div>
-
 </section>
 
 <section>
@@ -166,10 +210,8 @@ ab to hr jagha university , hostel , seltos , bike har kahi yaaden chodke chali 
 <h2>Ek Baat… 🫀</h2>
 <p>
 Ek baat bolu…  
-
 jitna bhi fight hota hai…  
 ek cheez kabhi change nahi hota…  
-
 aap hamaare liye special ho… genuinely.  
 or bahut maante h aapko umhaaaaaa ❤️
 </p>
@@ -180,12 +222,9 @@ or bahut maante h aapko umhaaaaaa ❤️
 <p>
 Subha uthte hi aap yaad aate ho…  
 raat me sone se pehle bhi aap yaad aate ho…  
-
 har chhoti cheez me aap yaad aate ho…  
-
 aap hi ho jo humko complete feel karate ho…  
 aap hi ho jo humko shona bolna sikayeeee…  
-
 aap sirf koi nahi ho…  
 aap hamaare fav person ho jise hum daily choose krte hai…  
 hamaare peace ho…  
@@ -224,14 +263,14 @@ function reveal() {
 
 setInterval(() => {
     let heart = document.createElement("div");
-    heart.innerHTML = "❤️";
+    heart.innerHTML = ["❤️","💗","💖","💘"][Math.floor(Math.random()*4)];
     heart.className = "heart";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = (Math.random() * 20 + 10) + "px";
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 5000);
-}, 300);
+}, 250);
 
 document.addEventListener("mousemove", function(e) {
     let heart = document.createElement("div");
@@ -243,11 +282,11 @@ document.addEventListener("mousemove", function(e) {
     heart.style.pointerEvents = "none";
     document.body.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 800);
+    setTimeout(() => heart.remove(), 600);
 });
 
 document.addEventListener("click", () => {
-    document.getElementById("bgMusic").play();
+    document.getElementById("bgMusic").play().catch(()=>{});
 }, { once: true });
 </script>
 
